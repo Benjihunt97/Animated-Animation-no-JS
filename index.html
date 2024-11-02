@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toggle Animation</title>
+<style>
+  /* Initial square style */
+  .square {
+    width: 50px;
+    height: 50px;
+    background-color: teal;
+    position: relative;
+  }
+
+  /* Hide the checkbox */
+  #toggle {
+    display: block;
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Move right animation */
+  @keyframes moveRight {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(100px); }
+  }
+
+  /* Move back animation */
+  @keyframes moveBack {
+    0% { transform: translateX(100px); }
+    100% { transform: translateX(0); }
+  }
+
+  /* When checkbox is checked, use moveRight */
+  #toggle:checked + .square {
+    animation: moveRight 0.5s forwards;
+  }
+
+  /* When unchecked, use moveBack */
+  #toggle:not(:checked) + .square {
+    animation: moveBack 0.5s forwards;
+  }
+</style>
+</head>
+<body>
+
+<input type="checkbox" id="toggle">
+<div class="square"></div>
+
+</body>
+</html>
